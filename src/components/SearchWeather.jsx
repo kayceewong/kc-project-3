@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Card, Container, Button, Row, Col } from 'react-bootstrap'
+import { Card, Container, Row, Col } from 'react-bootstrap'
 import Combobox from 'react-widgets/Combobox'
 import moment from 'moment'
 
@@ -7,6 +7,7 @@ import useGeocoding from '@/hooks/useGeocoding'
 import useForecast from '@/hooks/useForecast'
 
 import Loading from '@/components/Loading'
+import { data } from 'autoprefixer'
 
 function SearchWeather() {
   const [search, setSearch] = useState('')
@@ -27,11 +28,76 @@ function SearchWeather() {
     if (forecast.error) return <h1 className="text-center">Forecast Error</h1>
 
     const temperature = forecast.data?.current_weather?.temperature
+    const name = selected?.name
+    const windspeed = forecast.data?.current_weather?.windspeed
+    const dateTime = forecast.data?.current_weather?.time
+    const time = Number(dateTime.split('T')[1].split(':')[0])
+    const timeSymbol = time >= 6 && time < 18 ? 'd' : 'n'
 
     return (
-      <Card.Text className="fw-bolder mb-5">
-        <h2 className="text-center">{temperature} &deg;C</h2>
-      </Card.Text>
+      <>
+        <div className="card-text fw-bolder mb-5">
+          <div className="location">
+            <p className="text-center">{name}</p>
+          </div>
+          <div className="temperature">
+            <h2 className="text-center">{temperature} &deg;C</h2>
+          </div>
+          <div className="d-flex justify-content-center align-items-center">
+            <img alt="weather" className="weather-icon" src={`icons/${forecast.data?.current_weather.weathercode}${timeSymbol}.png`} />
+          </div>
+          <div className="windspeed">
+            <p className="text-center">Windspeed {windspeed}</p>
+          </div>
+        </div>
+
+        {/* Forecast for 5 Days */}
+
+        <div className="card-group">
+          <div className="card">
+            <img src="..." className="card-img-top" alt="..." />
+            <div className="card-body">
+              <h5 className="card-title">Card title</h5>
+              <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+          </div>
+          <div className="card">
+            <img src="..." className="card-img-top" alt="..." />
+            <div className="card-body">
+              <h5 className="card-title">Card title</h5>
+              <p className="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+              <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+          </div>
+
+          <div className="card">
+            <img src="..." className="card-img-top" alt="..." />
+            <div className="card-body">
+              <h5 className="card-title">Card title</h5>
+              <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+              <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+          </div>
+          <div className="card">
+            <img src="..." className="card-img-top" alt="..." />
+            <div className="card-body">
+              <h5 className="card-title">Card title</h5>
+              <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+          </div>
+          <div className="card">
+            <img src="..." className="card-img-top" alt="..." />
+            <div className="card-body">
+              <h5 className="card-title">Card title</h5>
+              <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+          </div>
+        </div>
+
+      </>
     )
   }
 
@@ -59,19 +125,15 @@ function SearchWeather() {
                   busy={geocoding.isLoading}
                   filter={false}
                 />
-                <Button type="submit" variant="secondary" size="m">
-                  Search
-                </Button>
               </div>
 
-              <Card className="bg-dark bg-opacity-50 py-3">
-                <Card.Title className="text-center">{}</Card.Title>
-                <Card.Text className="text-center">
+              <div className="card bg-dark bg-opacity-50 py-3">
+                <div className="card-title text-center">{}</div>
+                <div className="card-text text-center">
                   {moment().format('dddd, MMMM DD, YYYY')}
-                </Card.Text>
+                </div>
                 {renderWeather()}
-              </Card>
-
+              </div>
             </Card.ImgOverlay>
           </Card>
         </Col>

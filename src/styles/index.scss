@@ -1,6 +1,7 @@
 @import "~bootstrap/scss/bootstrap";
 @import "react-widgets/scss/styles.scss";
 
+
 #root {
   min-height: 100vh;
   background: url("https://source.unsplash.com/1920x1080/?nature, water")
@@ -11,4 +12,26 @@
   font-family: Verdana;
   font-size: small;
   font-weight: bold;
+}
+
+.weather-icon {
+  width: 175px;
+  height: 175px;
+}
+
+.forecast-icon {
+  width: 100px;
+  height: 100px;
+}
+
+.location {
+  font-size: 50px;
+
+  font-weight: bolder;
+  text-shadow: 1px 1px 1px #000;
+}
+
+.temperature {
+  font-size: larger;
+  text-shadow: 1px 1px 1px #000;
 }

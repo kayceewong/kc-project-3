@@ -34,9 +34,9 @@ function Forecast({ forecast }) {
                 <div className="d-flex justify-content-center align-items-center">
                   <img
                     alt="weather"
-                    className="weather-icon"
-                    src={`icons/${forecast.data?.daily.weathercode[dataIndex]}${timeSymbol}.png`}
-                    style={{ maxWidth: '100%', maxHeight: '100%' }}
+                    className="forecast-icon"
+                    src={`icons/${forecast.data?.daily.weathercode[dataIndex]}${timeSymbol}.svg`}
+
                   />
                 </div>
               </div>

@@ -46,13 +46,13 @@ function CurrentWeather({ forecast, selected }) {
           <p className="text-center">{name}</p>
         </div>
         <div className="temperature">
-          <h2 className="text-center" style={{ fontSize: '20px' }}>{temperature} &deg;C</h2>
+          <h2 className="text-center">{temperature} &deg;C</h2>
         </div>
         <div className="temperature">
           <h4 className="text-center" style={{ fontSize: '15px' }}>{tempLow} - {tempHigh} &deg;C</h4>
         </div>
         <div className="d-flex justify-content-center align-items-center">
-          <img alt="weather" className="weather-icon" src={`icons/${forecast.data?.current_weather.weathercode}${timeSymbol}.png`} />
+          <img alt="weather" className="weather-icon" src={`icons/${forecast.data?.current_weather.weathercode}${timeSymbol}.svg`} />
         </div>
 
         <div className="parameter-row d-flex justify-content-center align-items-center">

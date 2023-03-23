@@ -26,12 +26,18 @@
 
 .location {
   font-size: 50px;
-
   font-weight: bolder;
   text-shadow: 1px 1px 1px #000;
 }
 
 .temperature {
-  font-size: larger;
+  font-size: 40px;
+  font-weight: bolder;
   text-shadow: 1px 1px 1px #000;
+}
+
+.temperature-minmax {
+  font-size: 20px;
+    font-weight: bolder;
+    text-shadow: 1px 1px 1px #000;
 }

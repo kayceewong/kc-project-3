@@ -28,7 +28,7 @@ function Forecast({ forecast }) {
                 <div className="card-title text-center">{day}</div>
                 <div className="card-text fw-bolder mb-5">
                   <div className="temperature">
-                    <h4 className="text-center" style={{ fontSize: '15px' }}>{tempLow}-{tempHigh} &deg;C</h4>
+                    <h4 className="text-center" style={{ fontSize: '15px' }}>{tempLow} &deg;C - {tempHigh} &deg;C</h4>
                   </div>
                 </div>
                 <div className="d-flex justify-content-center align-items-center">

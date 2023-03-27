@@ -49,7 +49,7 @@ function CurrentWeather({ forecast, selected }) {
           <h2 className="text-center" style={{ fontSize: '30px', fontWeight: 'bold', textShadow: '1px 1px 2px rgba(0,0,0,0.5)' }}>{temperature} &deg;C</h2>
         </div>
         <div className="temperature-minmax">
-          <h4 className="text-center" style={{ fontSize: '16px', fontWeight: 'bold' }}>{tempLow}  {tempHigh} &deg;C</h4>
+          <h4 className="text-center" style={{ fontSize: '16px', fontWeight: 'bold' }}>{tempLow} &deg;C  {tempHigh} &deg;C</h4>
         </div>
         <div className="d-flex justify-content-center align-items-center">
           <img alt="weather" className="weather-icon" src={`icons/${forecast.data?.current_weather.weathercode}${timeSymbol}.svg`} />
